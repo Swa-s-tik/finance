@@ -55,7 +55,7 @@ def get_feature_importances():
     feature_names = (numeric_features + 
                      model.named_steps['preprocessor']
                      .named_transformers_['cat']
-                     .get_feature_names(categorical_features).tolist())
+                     .get_feature_names_out(categorical_features).tolist())
     importances = model.named_steps['classifier'].feature_importances_
     return dict(zip(feature_names, importances))
 
